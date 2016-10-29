@@ -492,3 +492,57 @@
 1477748168 source:c:\users\lislav\desktop\1010!\src\powerup.cpp
 	"PowerUp.h"
 
+1477742498 source:d:\github repos\c++\snake\snake\main.cpp
+	"Game.h"
+	<cstdlib>
+	<ctime>
+
+1477759449 d:\github repos\c++\snake\snake\include\game.h
+	<SFML/Graphics.hpp>
+	<windows.h>
+	<string>
+
+1477759449 source:d:\github repos\c++\snake\snake\src\apple.cpp
+	"Apple.h"
+	"Engine.h"
+
+1477759449 d:\github repos\c++\snake\snake\include\apple.h
+	<SFML/Graphics.hpp>
+	"Snake.h"
+
+1477759449 d:\github repos\c++\snake\snake\include\snake.h
+	<SFML/Graphics.hpp>
+	<vector>
+
+1477759449 d:\github repos\c++\snake\snake\include\engine.h
+	<SFML/Graphics.hpp>
+	<windows.h>
+	<game.h>
+	<sstream>
+	<ctime>
+	"Snake.h"
+	"Apple.h"
+	"PowerUp.h"
+
+1477759449 d:\github repos\c++\snake\snake\include\powerup.h
+	<SFML/Graphics.hpp>
+
+1477759449 source:d:\github repos\c++\snake\snake\src\engine.cpp
+	"Engine.h"
+	"Snake.h"
+	<string>
+	<sstream>
+	<cstdlib>
+	<ctime>
+
+1477759449 source:d:\github repos\c++\snake\snake\src\game.cpp
+	"Game.h"
+	"Engine.h"
+
+1477759449 source:d:\github repos\c++\snake\snake\src\powerup.cpp
+	"PowerUp.h"
+
+1477759449 source:d:\github repos\c++\snake\snake\src\snake.cpp
+	"Snake.h"
+	<SFML/Graphics.hpp>
+
