@@ -33,12 +33,12 @@ void Snake::create()
 
     length = 2;
     speed = 7;
-    size = 30;
+    size = 28;
 
     direction = RIGHT;
 
     positionHead.x = 10;
-    positionHead.y = rand() % 21 * size + 90;
+    positionHead.y = rand() % 20 * size + 113;
     head.setSize(Vector2f(size, size));
     head.setPosition(positionHead);
     head.setFillColor(Color(40,114,51));

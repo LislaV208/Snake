@@ -16,8 +16,8 @@ class Game
 
         friend class Engine;
 
-        const static int WIDTH = 1024;
-        const static int HEIGHT = 768;
+        const static int WIDTH = 800;
+        const static int HEIGHT = 600;
 
         void run();
     protected:

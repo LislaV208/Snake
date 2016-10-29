@@ -16,7 +16,7 @@ Apple::~Apple()
 
 void Apple::create()
 {
-    size = 30;
+    size = 28;
 
     if (!texture.loadFromFile("data/images/apple2.png"))
     {

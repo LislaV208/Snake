@@ -105,24 +105,23 @@ void Engine::setTitle()
 {
     title.setFont(font);
     title.setString("SNAKE");
-    title.setCharacterSize(60);
-    title.setPosition(Game::WIDTH/2 - title.getGlobalBounds().width/2, 5);
+    title.setCharacterSize(75);
+    title.setPosition(Game::WIDTH/2 - title.getGlobalBounds().width/2, 10);
     title.setColor(Color::Green);
     title.setStyle(Text::Bold);
 }
 
 void Engine::setPlayingField()
 {
-    playingField.setSize(Vector2f(720, 630));
+    playingField.setSize(Vector2f(560, 476));
     playingField.setFillColor(Color::White);
-    playingField.setPosition(10, title.getGlobalBounds().height + 46);
+    playingField.setPosition(10, title.getGlobalBounds().height + 46 + 15);
 }
-
 void Engine::setInfoField()
 {
-    infoField.setSize(Vector2f(270, playingField.getGlobalBounds().height));
+    infoField.setSize(Vector2f(210, playingField.getGlobalBounds().height));
     infoField.setFillColor(Color::White);
-    infoField.setPosition(playingField.getPosition().x + playingField.getGlobalBounds().width + 5, title.getGlobalBounds().height + 46);
+    infoField.setPosition(playingField.getPosition().x + playingField.getGlobalBounds().width + 10, title.getGlobalBounds().height + 46 + 15);
 }
 
 void Engine::setScore()
@@ -130,7 +129,7 @@ void Engine::setScore()
     score.setFont(font);
     score.setColor(Color::Black);
     score.setCharacterSize(40);
-    score.setPosition(Vector2f(infoField.getPosition().x + infoField.getGlobalBounds().width/4, 100));
+//    score.setPosition(Vector2f(infoField.getPosition().x + infoField.getGlobalBounds().width/4, 100));
     iScore = 0;
 }
 
@@ -139,6 +138,8 @@ void Engine::updateScore()
     ssScore.str("");
     ssScore << iScore;
     score.setString("Score: " + ssScore.str());
+    score.setPosition(Vector2f(infoField.getPosition().x + infoField.getGlobalBounds().width/2 -
+                               score.getGlobalBounds().width/2, 115));
 }
 
 bool Engine::checkCollisions()
@@ -152,9 +153,9 @@ bool Engine::checkCollisions()
 
     //check collisions beetwen snake and walls
     if (snake.getHeadPosition().x < 10 ||
-        snake.getHeadPosition().x > 720 ||
-        snake.getHeadPosition().y < 70 ||
-        snake.getHeadPosition().y > 690){
+        snake.getHeadPosition().x > 560 ||
+        snake.getHeadPosition().y < 110 ||
+        snake.getHeadPosition().y > 476 + 96){
         return false;
     }
 
@@ -340,10 +341,10 @@ void Engine::setApplePosition()
     do
     {
         repeat = false;
-        int x = rand() % 24;
-        int y = rand() % 21;
+        int x = rand() % 20;
+        int y = rand() % 17;
         apple.position.x = 10 + x*apple.getSize();
-        apple.position.y = 90 + y*apple.getSize();
+        apple.position.y = 113 + y*apple.getSize();
 
         if (snake.getHeadPosition() == apple.position)
             repeat = true;
