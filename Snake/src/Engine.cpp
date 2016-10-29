@@ -54,16 +54,16 @@ void Engine::run(RenderWindow &window)
                 if (event.key.code == Keyboard::Escape)
                     if (!showContinue(window)) menu = true;
                 if (!directionSet){
-                    if (event.key.code == Keyboard::W){
+                    if (event.key.code == Keyboard::Up){
                         if (snake.getDirection() != Snake::Direction::DOWN) snake.setDirection(0);
                     }
-                    if (event.key.code == Keyboard::A){
+                    if (event.key.code == Keyboard::Left){
                         if (snake.getDirection() != Snake::Direction::RIGHT) snake.setDirection(1);
                     }
-                    if (event.key.code == Keyboard::S){
+                    if (event.key.code == Keyboard::Down){
                         if (snake.getDirection() != Snake::Direction::UP) snake.setDirection(2);
                     }
-                    if (event.key.code == Keyboard::D){
+                    if (event.key.code == Keyboard::Right){
                         if (snake.getDirection() != Snake::Direction::LEFT) snake.setDirection(3);
                     }
                     directionSet = true;

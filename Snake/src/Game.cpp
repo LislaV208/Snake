@@ -54,13 +54,13 @@ void Game::menu()
     title.setColor(Color::Green);
     title.setStyle(Text::Bold);
 
-    const int ile = 2;
-    Text options[ile];
-    string str[ile] = {"Play", "Exit"};
+    const int optionsAmount = 2;
+    Text options[optionsAmount];
+    string str[optionsAmount] = {"Play", "Exit"};
 
     int currentOption = 0;
 
-    for (int i = 0; i < ile; i++)
+    for (int i = 0; i < optionsAmount; i++)
     {
         options[i].setFont(font);
         options[i].setString(str[i]);
@@ -89,7 +89,7 @@ void Game::menu()
                 }
                 if (event.key.code == Keyboard::Down)
                 {
-                    if (currentOption < ile - 1){
+                    if (currentOption < optionsAmount - 1){
                         currentOption++;
                     }
                 }
@@ -109,7 +109,7 @@ void Game::menu()
         window.clear();
 
         window.draw(title);
-        for (int i = 0; i < ile; i++)
+        for (int i = 0; i < optionsAmount; i++)
         {
             if (i == currentOption){
                 options[i].setColor(Color::Cyan);
