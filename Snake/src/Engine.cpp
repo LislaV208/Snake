@@ -175,7 +175,8 @@ bool Engine::showContinue(RenderWindow &window)
     int currentOption = 0;
 
     RectangleShape pauseField(Vector2f(500, 200));
-    pauseField.setPosition(Vector2f(Game::WIDTH/2 - pauseField.getGlobalBounds().width/2, Game::HEIGHT/2 - pauseField.getGlobalBounds().height/2));
+    pauseField.setPosition(Vector2f(Game::WIDTH/2 - pauseField.getGlobalBounds().width/2,
+                                    Game::HEIGHT/2 - pauseField.getGlobalBounds().height/2));
     pauseField.setFillColor(Color::Black);
 
     Text pauseText;
@@ -186,15 +187,22 @@ bool Engine::showContinue(RenderWindow &window)
     pauseText.setColor(Color::Yellow);
 
     Text yes("Yes", font, 50);
-    yes.setColor(Color::Yellow);
+    yes.setColor(Color::White);
 
     Text no("No", font, 50);
-    no.setColor(Color::Yellow);
+    no.setColor(Color::White);
 
     yes.setPosition(Game::WIDTH/2 - yes.getGlobalBounds().width/2 - 60,
                     pauseText.getPosition().y + pauseText.getGlobalBounds().height + 50);
     no.setPosition(Game::WIDTH/2 + no.getGlobalBounds().width/2 + 20,
                    yes.getPosition().y);
+
+    RectangleShape underlineYes(Vector2f(yes.getGlobalBounds().width, 5));
+    RectangleShape underlineNo(Vector2f(no.getGlobalBounds().width, 5));
+    underlineYes.setPosition(yes.getGlobalBounds().left, yes.getGlobalBounds().top +
+                             yes.getGlobalBounds().height + 10);
+    underlineNo.setPosition(no.getGlobalBounds().left, no.getGlobalBounds().top +
+                             no.getGlobalBounds().height + 10);
 
     while(pause)
     {
@@ -230,15 +238,21 @@ bool Engine::showContinue(RenderWindow &window)
 
         if (currentOption == 0)
         {
-            yes.setStyle(Text::Underlined); no.setStyle(Text::Regular);
-        } else {
-            no.setStyle(Text::Underlined); yes.setStyle(Text::Regular);
+            underlineYes.setFillColor(Color::Yellow);
+            underlineNo.setFillColor(Color::Black);
+        }
+        else
+        {
+            underlineYes.setFillColor(Color::Black);
+            underlineNo.setFillColor(Color::Yellow);
         }
 
         window.draw(pauseField);
         window.draw(pauseText);
         window.draw(yes);
         window.draw(no);
+        window.draw(underlineYes);
+        window.draw(underlineNo);
         window.display();
     }
 
@@ -250,7 +264,7 @@ bool Engine::showGameOver(RenderWindow &window)
     bool pause = true;
     int currentOption = 0;
 
-    RectangleShape pauseField(Vector2f(500, 250));
+    RectangleShape pauseField(Vector2f(500, 270));
     pauseField.setPosition(Vector2f(Game::WIDTH/2 - pauseField.getGlobalBounds().width/2, Game::HEIGHT/2 - pauseField.getGlobalBounds().height/2));
     pauseField.setFillColor(Color::Black);
 
@@ -267,15 +281,23 @@ bool Engine::showGameOver(RenderWindow &window)
     replay.setPosition(Game::WIDTH/2 - replay.getGlobalBounds().width/2, pauseText.getPosition().y + 120);
 
     Text yes("Yes", font, 50);
-    yes.setColor(Color::Yellow);
+    yes.setColor(Color::White);
 
     Text no("No", font, 50);
-    no.setColor(Color::Yellow);
+    no.setColor(Color::White);
 
     yes.setPosition(Game::WIDTH/2 - yes.getGlobalBounds().width/2 - 60,
                     replay.getPosition().y + yes.getGlobalBounds().height + 35);
     no.setPosition(Game::WIDTH/2 + no.getGlobalBounds().width/2 + 20,
                    yes.getPosition().y);
+
+    RectangleShape underlineYes(Vector2f(yes.getGlobalBounds().width, 5));
+    RectangleShape underlineNo(Vector2f(no.getGlobalBounds().width, 5));
+
+    underlineYes.setPosition(yes.getGlobalBounds().left, yes.getGlobalBounds().top +
+                             yes.getGlobalBounds().height + 10);
+    underlineNo.setPosition(no.getGlobalBounds().left, no.getGlobalBounds().top +
+                             no.getGlobalBounds().height + 10);
 
     while(pause)
     {
@@ -311,9 +333,13 @@ bool Engine::showGameOver(RenderWindow &window)
 
         if (currentOption == 0)
         {
-            yes.setStyle(Text::Underlined); no.setStyle(Text::Regular);
-        } else {
-            no.setStyle(Text::Underlined); yes.setStyle(Text::Regular);
+            underlineYes.setFillColor(Color::Yellow);
+            underlineNo.setFillColor(Color::Black);
+        }
+        else
+        {
+            underlineYes.setFillColor(Color::Black);
+            underlineNo.setFillColor(Color::Yellow);
         }
 
         window.draw(pauseField);
@@ -321,6 +347,8 @@ bool Engine::showGameOver(RenderWindow &window)
         window.draw(replay);
         window.draw(yes);
         window.draw(no);
+        window.draw(underlineYes);
+        window.draw(underlineNo);
         window.display();
     }
 
