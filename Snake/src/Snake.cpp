@@ -38,7 +38,7 @@ void Snake::create()
     direction = RIGHT;
 
     positionHead.x = 10;
-    positionHead.y = rand() % 20 * size + 113;
+    positionHead.y = rand() % 17 * size + 113;
     head.setSize(Vector2f(size, size));
     head.setPosition(positionHead);
     head.setFillColor(Color(40,114,51));

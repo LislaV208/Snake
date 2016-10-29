@@ -9,7 +9,6 @@
 
 #include "Snake.h"
 #include "Apple.h"
-#include "PowerUp.h"
 
 using namespace sf;
 
@@ -38,7 +37,6 @@ class Engine
         RectangleShape infoField;
         Snake snake;
         Apple apple;
-        PowerUp powerUp;
 
         bool checkCollisions();
         void setApplePosition();

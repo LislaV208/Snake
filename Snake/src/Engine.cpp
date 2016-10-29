@@ -35,7 +35,6 @@ void Engine::run(RenderWindow &window)
 
     snake.create();
     apple.create();
-    powerUp.create();
     setApplePosition();
 
     while (!menu)
@@ -82,7 +81,6 @@ void Engine::run(RenderWindow &window)
             else run(window); return;
         }
         if (snakeAteApple());
-        if (snakeAtePowerUp());
 
 
         window.clear();
@@ -92,11 +90,6 @@ void Engine::run(RenderWindow &window)
         window.draw(score);
         window.draw(snake);
         window.draw(apple);
-        if (pTime.asSeconds() >= iTime){
-            setNewPowerUp();
-            iTime = (rand() % 15) + 10;
-            pTime = pClock.restart();}
-        window.draw(powerUp);
         window.display();
     }
 }
@@ -155,7 +148,7 @@ bool Engine::checkCollisions()
     if (snake.getHeadPosition().x < 10 ||
         snake.getHeadPosition().x > 560 ||
         snake.getHeadPosition().y < 110 ||
-        snake.getHeadPosition().y > 476 + 96){
+        snake.getHeadPosition().y > 572){
         return false;
     }
 
@@ -167,7 +160,7 @@ bool Engine::snakeAteApple()
 {
     if (snake.getHeadPosition() == apple.getPosition())
     {
-        snake.makeLonger(2);
+        snake.makeLonger(1);
         setApplePosition();
         iScore++;
         snake.increaseSpeed();
@@ -360,49 +353,4 @@ void Engine::setApplePosition()
     } while(repeat);
 
     apple.apple.setPosition(apple.position);
-}
-
-void Engine::setNewPowerUp()
-{
-    bool repeat;
-    Vector2f position;
-
-    do
-    {
-        repeat = false;
-        int x = rand() % 24;
-        int y = rand() % 21;
-        position.x = 10 + x*30;
-        position.y = 90 + y*30;
-
-        if (snake.getHeadPosition() == position)
-            repeat = true;
-        else if (apple.getPosition() == position)
-            repeat = true;
-        else
-        {
-            for (int i = 0; i < snake.getLength(); i++)
-            {
-                if (snake.getBodyPosition(i) == position)
-                    repeat = true;
-            }
-        }
-
-
-    } while(repeat);
-
-    powerUp.setNewPosition(position);
-}
-
-bool Engine::snakeAtePowerUp()
-{
-    int type = rand() % 1;
-    if (powerUp.getPosition() == snake.getHeadPosition())
-    {
-        snake.makeLonger(3);
-        snake.increaseSpeed();
-        powerUp.setNewPosition(Vector2f(-30, 0));
-        return true;
-    }
-    return false;
 }
