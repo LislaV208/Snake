@@ -17,13 +17,8 @@ Apple::~Apple()
 void Apple::create()
 {
     size = 28;
-
-    if (!texture.loadFromFile("data/images/apple2.png"))
-    {
-        MessageBox(NULL,"Texture not found!","ERROR",NULL);
-		return;
-    }
-    apple.setTexture(texture);
+    apple.setSize(Vector2f(size, size));
+    apple.setFillColor(Color::Red);
 }
 
 Vector2f Apple::getPosition() const

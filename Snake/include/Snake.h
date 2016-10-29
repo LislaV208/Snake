@@ -42,7 +42,7 @@ class Snake : public Drawable
         RectangleShape bodyShape;
         vector <RectangleShape> body;
         int length;
-        int speed;
+        float speed;
         int size;
         Direction direction;
         Vector2f positionHead;

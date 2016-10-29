@@ -18,8 +18,7 @@ class Apple : public Drawable
 
     protected:
     private:
-        Texture texture;
-        Sprite apple;
+        RectangleShape apple;
         int size;
         Vector2f position;
 

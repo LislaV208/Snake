@@ -40,9 +40,7 @@ class Engine
 
         bool checkCollisions();
         void setApplePosition();
-        void setNewPowerUp();
         bool snakeAteApple();
-        bool snakeAtePowerUp();
         void setTitle();
         void setPlayingField();
         void setInfoField();

@@ -153,5 +153,5 @@ void Snake::makeLonger(int how)
 
 void Snake::increaseSpeed()
 {
-    speed += 0.1;
+    speed += 0.09;
 }
