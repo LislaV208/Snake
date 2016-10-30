@@ -3,15 +3,6 @@
 
 using namespace sf;
 
-Snake::Snake()
-{
-    //ctor
-}
-
-Snake::~Snake()
-{
-    //dtor
-}
 
 void Snake::create()
 {

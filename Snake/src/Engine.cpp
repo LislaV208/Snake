@@ -17,11 +17,6 @@ Engine::Engine()
     }
 }
 
-Engine::~Engine()
-{
-    //dtor
-}
-
 void Engine::handleKeyboardInput(RenderWindow & window, Event event, bool& menu, bool& directionSet)
 {
     if (event.type == Event::KeyPressed)
@@ -84,13 +79,11 @@ void Engine::run(RenderWindow &window)
 
     while (!menu)
     {
-        // check all the window's events that were triggered since the last iteration of the loop
         time = clock.getElapsedTime();
         updateScore();
         while (window.pollEvent(event))
         {
             handleKeyboardInput(window, event, menu, directionSet);
-            // "close requested" event: we close the window
             if (event.type == Event::Closed)
                 if (!showContinue(window)) menu = true;
         }
@@ -145,7 +138,8 @@ void Engine::setInfoField()
 {
     infoField.setSize(Vector2f(210, playingField.getGlobalBounds().height));
     infoField.setFillColor(Color::White);
-    infoField.setPosition(playingField.getPosition().x + playingField.getGlobalBounds().width + 10, title.getGlobalBounds().height + 46 + 15);
+    infoField.setPosition(playingField.getPosition().x + playingField.getGlobalBounds().width + 10,
+                          title.getGlobalBounds().height + 46 + 15);
 }
 
 void Engine::setScore()
@@ -153,7 +147,6 @@ void Engine::setScore()
     score.setFont(font);
     score.setColor(Color::Black);
     score.setCharacterSize(40);
-//    score.setPosition(Vector2f(infoField.getPosition().x + infoField.getGlobalBounds().width/4, 100));
     iScore = 0;
 }
 

@@ -51,7 +51,6 @@ class Snake : public Drawable
 
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
         {
-            //rysowanie obiektow, które sk³adaj¹ siê na narysowanie naszej postaci
             target.draw(head);
             for (int i = 0; i < length; i++)
                 target.draw(body[i]);

@@ -24,7 +24,6 @@ class Apple : public Drawable
 
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
         {
-            //rysowanie obiektow, które sk³adaj¹ siê na narysowanie naszej postaci
             target.draw(apple);
         }
 };

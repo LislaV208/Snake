@@ -17,11 +17,6 @@ Game::Game()
     state = MENU;
 }
 
-Game::~Game()
-{
-    //dtor
-}
-
 void Game::run()
 {
     while (state != END)
@@ -70,11 +65,9 @@ void Game::menu()
 
     while (state == MENU)
     {
-        // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
         while (window.pollEvent(event))
         {
-            // "close requested" event: we close the window
             if (event.type == Event::Closed)
                 state = END;
             if (event.type == Event::KeyPressed)

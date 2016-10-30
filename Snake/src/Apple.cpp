@@ -4,15 +4,6 @@
 using namespace std;
 using namespace sf;
 
-Apple::Apple()
-{
-    //ctor
-}
-
-Apple::~Apple()
-{
-    //dtor
-}
 
 void Apple::create()
 {
