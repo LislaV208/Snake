@@ -15,26 +15,9 @@ Snake::~Snake()
 
 void Snake::create()
 {
-    if (!tHead.loadFromFile("data/images/head.png"))
-    {
-        //MessageBox(NULL,"Texture not found!","ERROR",NULL);
-		return;
-    }
-    if (!tBody.loadFromFile("data/images/body.png"))
-    {
-        //MessageBox(NULL,"Texture not found!","ERROR",NULL);
-		return;
-    }
-    if (!tTail.loadFromFile("data/images/tail.png"))
-    {
-        //MessageBox(NULL,"Texture not found!","ERROR",NULL);
-		return;
-    }
-
     length = 2;
     speed = 7;
     size = 28;
-
     direction = RIGHT;
 
     positionHead.x = 10;
@@ -92,14 +75,14 @@ Snake::Direction Snake::getDirection() const
     return direction;
 }
 
-void Snake::setDirection(int dir)
+void Snake::setDirection(Direction dir)
 {
     switch (dir)
     {
-        case 0: direction = UP; break;
-        case 1: direction = LEFT; break;
-        case 2: direction = DOWN; break;
-        case 3: direction = RIGHT; break;
+        case Direction::UP: direction = UP; break;
+        case Direction::LEFT: direction = LEFT; break;
+        case Direction::DOWN: direction = DOWN; break;
+        case Direction::RIGHT: direction = RIGHT; break;
         default: break;
     }
 }
@@ -153,5 +136,10 @@ void Snake::makeLonger(int how)
 
 void Snake::increaseSpeed()
 {
-    speed += 0.09;
+    speed += 0.05;
+}
+
+void Snake::decreaseSpeed()
+{
+    speed -= 0.05;
 }

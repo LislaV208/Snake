@@ -48,13 +48,11 @@
 		<Unit filename="include/Apple.h" />
 		<Unit filename="include/Engine.h" />
 		<Unit filename="include/Game.h" />
-		<Unit filename="include/PowerUp.h" />
 		<Unit filename="include/Snake.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Apple.cpp" />
 		<Unit filename="src/Engine.cpp" />
 		<Unit filename="src/Game.cpp" />
-		<Unit filename="src/PowerUp.cpp" />
 		<Unit filename="src/Snake.cpp" />
 		<Extensions>
 			<code_completion />

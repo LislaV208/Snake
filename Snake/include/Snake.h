@@ -24,7 +24,7 @@ class Snake : public Drawable
 
         void create();
         void move(Direction);
-        void setDirection(int);
+        void setDirection(Direction);
         Direction getDirection() const;
         void setPreviousDirection();
         Direction getPrevious() const;
@@ -34,6 +34,7 @@ class Snake : public Drawable
         Vector2f getBodyPosition(int) const;
         void makeLonger(int);
         void increaseSpeed();
+        void decreaseSpeed();
 
     protected:
     private:

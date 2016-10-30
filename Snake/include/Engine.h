@@ -25,20 +25,19 @@ class Engine
         Event event;
         Font font;
         Clock clock;
-        Clock pClock;
         Time time;
-        Time pTime;
         Text score;
         ostringstream ssScore;
         Text title;
         int iScore;
-        int iTime;
         RectangleShape playingField;
         RectangleShape infoField;
         Snake snake;
         Apple apple;
 
+        void handleKeyboardInput(RenderWindow&, Event, bool&, bool&);
         bool checkCollisions();
+        bool win();
         void setApplePosition();
         bool snakeAteApple();
         void setTitle();
@@ -48,6 +47,7 @@ class Engine
         void updateScore();
         bool showContinue(RenderWindow &window);
         bool showGameOver(RenderWindow &window);
+        bool showWin(RenderWindow&);
 };
 
 #endif // ENGINE_H
